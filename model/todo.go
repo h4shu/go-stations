@@ -36,9 +36,9 @@ type (
 
 	// A UpdateTODORequest expresses ...
 	UpdateTODORequest struct {
-		ID 					int64		`json:"id"`
-		Subject 		string	`json:"subject"`
-		Description string	`json:"description"`
+		ID					int64		`json:"id"`
+		Subject			string	`json:"subject"`
+		Description	string	`json:"description"`
 	}
 	// A UpdateTODOResponse expresses ...
 	UpdateTODOResponse struct {
@@ -46,7 +46,9 @@ type (
 	}
 
 	// A DeleteTODORequest expresses ...
-	DeleteTODORequest struct{}
+	DeleteTODORequest struct {
+		IDs					[]int64		`json:"ids"`
+	}
 	// A DeleteTODOResponse expresses ...
 	DeleteTODOResponse struct{}
 )
