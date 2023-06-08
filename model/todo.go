@@ -7,21 +7,21 @@ import (
 type (
 	// A TODO expresses ...
 	TODO struct {
-		ID 					int `json:"id"`
-		Subject 		string `json:"subject"`
-		Description string `json:"description"`
-		CreatedAt 	time.Time `json:"created_at"`
-		UpdatedAt 	time.Time `json:"updated_at"`
+		ID					int64			`json:"id"`
+		Subject			string		`json:"subject"`
+		Description	string		`json:"description"`
+		CreatedAt		time.Time	`json:"created_at"`
+		UpdatedAt		time.Time	`json:"updated_at"`
 	}
 
 	// A CreateTODORequest expresses ...
 	CreateTODORequest struct {
-		Subject 		string `json:"subject"`
-		Description string `json:"description"`
+		Subject 		string	`json:"subject"`
+		Description	string	`json:"description"`
 	}
 	// A CreateTODOResponse expresses ...
 	CreateTODOResponse struct {
-		TODO TODO `json:"todo"`
+		TODO	TODO	`json:"todo"`
 	}
 
 	// A ReadTODORequest expresses ...
@@ -31,13 +31,13 @@ type (
 
 	// A UpdateTODORequest expresses ...
 	UpdateTODORequest struct {
-		ID 					int `json:"id"`
-		Subject 		string `json:"subject"`
-		Description string `json:"description"`
+		ID 					int64		`json:"id"`
+		Subject 		string	`json:"subject"`
+		Description string	`json:"description"`
 	}
 	// A UpdateTODOResponse expresses ...
 	UpdateTODOResponse struct {
-		TODO TODO `json:"todo"`
+		TODO	TODO	`json:"todo"`
 	}
 
 	// A DeleteTODORequest expresses ...
