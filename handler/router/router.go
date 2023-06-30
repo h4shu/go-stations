@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/TechBowl-japan/go-stations/handler"
+	"github.com/TechBowl-japan/go-stations/handler/middleware"
 	"github.com/TechBowl-japan/go-stations/service"
 )
 
@@ -14,6 +15,8 @@ func NewRouter(todoDB *sql.DB) *http.ServeMux {
 
 	mux.HandleFunc("/healthz", handler.NewHealthzHandler().ServeHTTP)
 	mux.HandleFunc("/todos", handler.NewTODOHandler(service.NewTODOService(todoDB)).ServeHTTP)
+
+	mux.Handle("/do-panic", middleware.Recovery(handler.NewPanicHandler()))
 
 	return mux
 }
