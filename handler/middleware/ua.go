@@ -12,8 +12,8 @@ func UA(h http.Handler) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		ua := useragent.Parse(r.UserAgent())
 		c := r.Context()
-		nr := r.WithContext(context.WithValue(c, model.ContextKey("OS"), ua.OS))
-		h.ServeHTTP(w, nr)
+		*r = *r.WithContext(context.WithValue(c, model.ContextKey("OS"), ua.OS))
+		h.ServeHTTP(w, r)
 	}
 	return http.HandlerFunc(fn)
 }
